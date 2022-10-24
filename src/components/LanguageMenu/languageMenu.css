@@ -19,8 +19,31 @@
 	background-image: url(../../media/bg/lang-picker-bg.svg);
 }
 
+.selected-border:focus {
+	outline: 3px solid green;
+}
+
 .row-display {
 	display: flex;
-
 	gap: 1.5rem;
+}
+
+.select-language {
+	font-family: "Dangrek", monospace;
+	cursor: pointer;
+	margin-top: 0.5rem;
+	height: 3rem;
+	width: 15rem;
+	font-size: 1.5rem;
+	border-radius: 20px;
+	color: rgb(135, 187, 255);
+	border: solid 3px rgb(20, 57, 105);
+	background-color: rgb(47, 92, 152);
+	transition: all 0.5s ease;
+}
+
+.select-language:hover {
+	background-color: rgb(67, 112, 172);
+	transform: scale(1.1);
+	box-shadow: 0px 10px 15px rgb(18, 36, 59);
 }

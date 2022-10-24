@@ -1,10 +1,19 @@
 import React from "react";
-import "./language.css";
+import "./Language.css";
 
 const Language = (props) => {
 	return (
 		// name, flag, fact
-		<div className="card">
+		<div
+			className="card"
+			onClick={() =>
+				props.changeLang({
+					name: props.name,
+					image: props.image,
+					fact: props.fact,
+				})
+			}
+		>
 			<p className="heading">{props.name}</p>
 			<img
 				className="flag"
