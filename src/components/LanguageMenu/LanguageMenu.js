@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Language from "./Language/Language";
 import { languages } from "./languageList";
-import "./languageMenu.css";
+import "./LanguageMenu.css";
 
-const LanguageMenu = () => {
+const LanguageMenu = ({ changeSelectedLanguage }) => {
+	const [lang, changeLang] = useState(0);
+
 	const buildLanguageMenu = () => {
-		let currentLangs = languages.map((language) => {
+		let currentLangs = languages.map((props, index) => {
 			return (
 				<Language
-					key={language.name}
-					name={language.name}
-					image={language.image}
-					fact={language.fact}
+					key={props.name}
+					name={props.name}
+					image={props.image}
+					fact={props.fact}
+					changeLang={changeLang}
 				/>
 			);
 		});
@@ -22,6 +26,14 @@ const LanguageMenu = () => {
 			<div className="container">
 				<h1 className="title">Select your language:</h1>
 				<div className="row-display">{buildLanguageMenu()}</div>
+				<Link to="/lessons" component={<Language />}>
+					<button
+						className="select-language"
+						onClick={() => changeSelectedLanguage(lang)}
+					>
+						Select
+					</button>
+				</Link>
 			</div>
 		</>
 	);
