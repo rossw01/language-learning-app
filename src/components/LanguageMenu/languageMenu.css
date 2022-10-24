@@ -1,0 +1,26 @@
+.title {
+	font-family: "Dangrek", monospace;
+	font-size: 50px;
+	color: rgb(135, 187, 255);
+}
+
+.subtext {
+	font-family: "DM Sans", monospace;
+	font-size: 18px;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	height: 100vh;
+	background-image: url(../../media/bg/lang-picker-bg.svg);
+}
+
+.row-display {
+	display: flex;
+
+	gap: 1.5rem;
+}

@@ -1,0 +1,23 @@
+.card {
+	gap: 0.5rem;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: white;
+	border-radius: 10px;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	width: 10rem;
+}
+
+.heading {
+	font-family: "Dangrek", monospace;
+	font-size: 34px;
+}
+
+.flag {
+	width: 6rem;
+	border: solid rgb(83, 83, 83) 2px;
+	border-radius: 20px;
+}
