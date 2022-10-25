@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Language from "./Language/Language";
-import { languages } from "./languageList";
+import { languages } from "../../languages";
+import LanguageButton from "./LanguageButton/LanguageButton";
 import "./LanguageMenu.css";
 
 const LanguageMenu = ({ changeSelectedLanguage }) => {
 	const [lang, changeLang] = useState(0);
+	// Prevents user from clicking "Select" button before selecting a language
+	const [submitIsDisabled, changeSubmitIsDisabled] = useState(true);
 
 	const buildLanguageMenu = () => {
 		let currentLangs = languages.map((props, index) => {
 			return (
-				<Language
-					key={props.name}
+				<LanguageButton
+					key={index}
 					name={props.name}
 					image={props.image}
 					fact={props.fact}
+					lessons={props.lessons}
 					changeLang={changeLang}
+					changeSubmitIsDisabled={changeSubmitIsDisabled}
 				/>
 			);
 		});
@@ -26,9 +30,10 @@ const LanguageMenu = ({ changeSelectedLanguage }) => {
 			<div className="container">
 				<h1 className="title">Select your language:</h1>
 				<div className="row-display">{buildLanguageMenu()}</div>
-				<Link to="/lessons" component={<Language />}>
+				<Link to="/lessons" component={<LanguageButton />}>
 					<button
-						className="select-language"
+						disabled={submitIsDisabled}
+						className="select-button"
 						onClick={() => changeSelectedLanguage(lang)}
 					>
 						Select
