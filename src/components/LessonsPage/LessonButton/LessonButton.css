@@ -1,3 +1,19 @@
 img {
 	width: 10rem;
 }
+
+.lesson {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5rem;
+	gap: 0.5rem;
+	border: solid 2px #555;
+	border-radius: 10px;
+	transition: all 0.5s ease;
+}
+
+.lesson:hover {
+	transform: scale(1.1);
+}
