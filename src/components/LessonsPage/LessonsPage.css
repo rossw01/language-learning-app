@@ -1,0 +1,23 @@
+.fb-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.fb-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.lessons-page-container {
+	height: 100vh;
+}
+
+.lessons-page {
+	height: 90%;
+	align-items: center;
+	justify-content: center;
+}
+
+.lessons-list {
+	gap: 1rem;
+}

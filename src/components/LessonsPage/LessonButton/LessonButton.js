@@ -4,7 +4,7 @@ import "./LessonButton.css";
 const LessonButton = (props) => {
 	console.log(props.imagesrc);
 	return (
-		<div>
+		<div className="lesson">
 			<p>{props.name}</p>
 			<img
 				src={require(`../../../courses/id/images/${props.imagesrc}`)}

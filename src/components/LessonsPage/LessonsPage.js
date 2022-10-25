@@ -1,5 +1,6 @@
 import React from "react";
 import LessonButton from "./LessonButton/LessonButton";
+import "./LessonsPage.css";
 
 const LessonPage = ({ selectedLanguage }) => {
 	const buildLessonList = () => {
@@ -12,9 +13,11 @@ const LessonPage = ({ selectedLanguage }) => {
 	};
 
 	return (
-		<div>
+		<div className="lessons-page-container">
 			<h1>{selectedLanguage.name}</h1>
-			<div>{buildLessonList()}</div>
+			<div className="fb-col lessons-page">
+				<div className="fb-col lessons-list">{buildLessonList()}</div>
+			</div>
 		</div>
 	);
 };
