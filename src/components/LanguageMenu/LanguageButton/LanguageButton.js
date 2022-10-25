@@ -17,7 +17,8 @@ const Language = (props) => {
 			<p className="heading">{props.name}</p>
 			<img
 				className="flag"
-				src={require(`../../../flags/${props.image}`)}
+				src={require(`../../../courses/${props.languageCode}/flag.svg`)}
+				// LanguageButton image no longer checks 'Flags' folder.
 				alt={`${props.name} Flag`}
 			/>
 			<p className="subtext">{props.fact}</p>
