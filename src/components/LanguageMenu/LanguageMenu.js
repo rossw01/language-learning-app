@@ -15,7 +15,7 @@ const LanguageMenu = ({ changeSelectedLanguage }) => {
 				<LanguageButton
 					key={index}
 					name={props.name}
-					image={props.image}
+					languageCode={props.languageCode}
 					fact={props.fact}
 					lessons={props.lessons}
 					changeLang={changeLang}

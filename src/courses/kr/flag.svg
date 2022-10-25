@@ -12,9 +12,9 @@
         <use xlink:href="#b" width="100%" height="100%" y="44"/>
       </g>
       <path stroke="#fff" d="M0 17v10"/>
-      <path fill="#cd2e3a" d="M0-12a12 12 0 0 1 0 24Z"/>
-      <path fill="#0047a0" d="M0-12a12 12 0 0 0 0 24A6 6 0 0 0 0 0Z"/>
-      <circle cy="-6" r="6" fill="#cd2e3a"/>
+      <path fill="#cc313e" d="M0-12a12 12 0 0 1 0 24Z"/>
+      <path fill="#1864b5" d="M0-12a12 12 0 0 0 0 24A6 6 0 0 0 0 0Z"/>
+      <circle cy="-6" r="6" fill="#cc313e"/>
     </g>
     <g transform="rotate(-123.7 191.2 62.2) scale(10.66667)">
       <use xlink:href="#c" width="100%" height="100%"/>
