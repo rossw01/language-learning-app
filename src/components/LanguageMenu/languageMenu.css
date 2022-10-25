@@ -28,7 +28,7 @@
 	gap: 1.5rem;
 }
 
-.select-language {
+.select-button {
 	font-family: "Dangrek", monospace;
 	cursor: pointer;
 	margin-top: 0.5rem;
@@ -42,8 +42,20 @@
 	transition: all 0.5s ease;
 }
 
-.select-language:hover {
+.select-button:hover {
 	background-color: rgb(67, 112, 172);
 	transform: scale(1.1);
 	box-shadow: 0px 10px 15px rgb(18, 36, 59);
+}
+
+.select-button:disabled {
+	background-color: gray;
+	color: white;
+	border: solid 3px rgb(98, 98, 98);
+}
+
+.select-button:hover:disabled {
+	background-color: gray;
+	transform: scale(1);
+	box-shadow: none;
 }
