@@ -1,12 +1,20 @@
 import React from "react";
 import LessonButton from "./LessonButton/LessonButton";
 import "./LessonsPage.css";
+import { Link } from "react-router-dom";
 
-const LessonPage = ({ selectedLanguage }) => {
+const LessonsPage = ({ selectedLesson, selectedLanguage, changeSelectedLesson}) => {
+  const clickHandler = (lesson) => {
+    console.log(`User selected ${lesson.name}`);
+    changeSelectedLesson(lesson);
+  }
+
 	const buildLessonList = () => {
 		let currentLessons = selectedLanguage.lessons.map((lesson, index) => {
 			return (
-				<LessonButton key={index} name={lesson.name} imagesrc={lesson.image} />
+        <Link to="/quiz" onClick={() => clickHandler(lesson)}>
+  	      <LessonButton key={index} languageCode={selectedLanguage.languageCode} name={lesson.name} imagesrc={lesson.image} />
+        </Link>
 			);
 		});
 		return currentLessons;
@@ -22,4 +30,4 @@ const LessonPage = ({ selectedLanguage }) => {
 	);
 };
 
-export default LessonPage;
+export default LessonsPage;

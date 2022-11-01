@@ -1,6 +1,7 @@
 export const krLessons = [
 	{
 		name: "Hangul",
+		image: "lesson0.png",
 		content: [
 			{
 				question: "Halo, Apa Kabar?",
@@ -24,6 +25,7 @@ export const krLessons = [
 	},
 	{
 		name: "안녕하세요!",
+		image: "lesson1.png",
 		content: [
 			{
 				question: "Halo, Apa Kabar?",

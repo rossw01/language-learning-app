@@ -30,7 +30,7 @@ const LanguageMenu = ({ changeSelectedLanguage }) => {
 			<div className="container">
 				<h1 className="title">Select your language:</h1>
 				<div className="row-display">{buildLanguageMenu()}</div>
-				<Link to="/lessons" component={<LanguageButton />}>
+				<Link to="/lessons">
 					<button
 						disabled={submitIsDisabled}
 						className="select-button"
