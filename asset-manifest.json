@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/language-learning-app/static/css/main.2f72703b.css",
+    "main.js": "/language-learning-app/static/js/main.363e6b6e.js",
+    "static/js/787.0837b54e.chunk.js": "/language-learning-app/static/js/787.0837b54e.chunk.js",
+    "static/media/lesson0.png": "/language-learning-app/static/media/lesson0.7c5cee6185eed9abbe02.png",
+    "static/media/lesson1.png": "/language-learning-app/static/media/lesson1.4c2671e32e97b0710d99.png",
+    "static/media/lang-picker-bg.svg": "/language-learning-app/static/media/lang-picker-bg.655f001c206997bfc0ca.svg",
+    "static/media/flag.svg": "/language-learning-app/static/media/flag.4bf264e702ee5654f72a.svg",
+    "index.html": "/language-learning-app/index.html",
+    "main.2f72703b.css.map": "/language-learning-app/static/css/main.2f72703b.css.map",
+    "main.363e6b6e.js.map": "/language-learning-app/static/js/main.363e6b6e.js.map",
+    "787.0837b54e.chunk.js.map": "/language-learning-app/static/js/787.0837b54e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2f72703b.css",
+    "static/js/main.363e6b6e.js"
+  ]
+}
