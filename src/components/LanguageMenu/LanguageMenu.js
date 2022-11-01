@@ -4,6 +4,8 @@ import { languages } from "../../languages";
 import LanguageButton from "./LanguageButton/LanguageButton";
 import "./LanguageMenu.css";
 
+// asdjasd
+
 const LanguageMenu = ({ changeSelectedLanguage }) => {
 	const [lang, changeLang] = useState(0);
 	// Prevents user from clicking "Select" button before selecting a language
