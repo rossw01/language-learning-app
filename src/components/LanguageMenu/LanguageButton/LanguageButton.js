@@ -7,7 +7,7 @@ const Language = (props) => {
 		props.changeLang({
 			name: props.name,
 			image: props.image,
-      languageCode: props.languageCode,
+			languageCode: props.languageCode,
 			fact: props.fact,
 			lessons: props.lessons,
 		});
