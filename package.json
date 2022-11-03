@@ -1,7 +1,7 @@
 {
   "name": "language-learning-app",
   "version": "0.1.0",
-  "homepage":"https://rossw01.github.io/language-learning-app",
+  "homepage": "https://rossw01.github.io/language-learning-app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

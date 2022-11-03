@@ -1,9 +1,9 @@
 import React from "react";
-import "./Lesson.css";
+import "./QuestionResult.css";
 
-const QuestionCorrect = (props) => {
+const QuestionCorrect = () => {
 	return (
-		<div>
+		<div className="correct-background">
 			<p>Correct!</p>
 		</div>
 	);
