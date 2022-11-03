@@ -1,10 +1,7 @@
 import React from 'react'
 import TextInputQuestion from './QuestionTypes/TextInputQuestion';
 
-
 const Lesson = (props) => {
-  console.log(props.selectedLanguage);
-  console.log(props.selectedLesson);
 
   const buildQuestions = () => {
     let currentQuestions = props.selectedLesson.content.map((content, index) => {

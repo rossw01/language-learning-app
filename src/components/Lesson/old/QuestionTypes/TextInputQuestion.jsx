@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import QuestionCorrect from '../QuestionCorrect.jsx'
-import QuestionIncorrect from '../QuestionIncorrect.jsx';
-import incorrectSound from "../../../sounds/question-incorrect-sound.wav";
-import correctSound from "../../../sounds/question-correct-sound.wav";
+
 
 const TextInputQuestion = (props) => {
   const [userAnswer, setUserAnswer] = useState("");
-  const [isResultDisplayed, setIsResultDisplayed] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(); 
 
   function stripPunctuation(input) {
     var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
@@ -55,10 +51,10 @@ const TextInputQuestion = (props) => {
     answer = answer.replaceAll(" ", "");
     correctAnswer = correctAnswer.replaceAll(" ", "");
     // Check lengths are reasonable
-    if (answer.length === correctAnswer.length) {
+    if (answer.length == correctAnswer.length) {
       return checkRegularTypo(answer, correctAnswer)
-    } else if (answer.length === correctAnswer.length - 1 ||
-      answer.length === correctAnswer.length + 1) {
+    } else if (answer.length == correctAnswer.length - 1 ||
+      answer.length == correctAnswer.length + 1) {
       return checkMismatchingLengthTypo(answer, correctAnswer)
     }
     return false;
@@ -69,20 +65,15 @@ const TextInputQuestion = (props) => {
     let correctAnswer = stripPunctuation(props.correctAnswer.toLowerCase());
     // If the answer matches perfectly:
     if (answerToCheck === correctAnswer) {
-      // Perfect Answer:
-      setIsCorrect(true);
-      new Audio(correctSound).play();
+      // TODO: Replace these with something nice
+      console.log("Correct Answer");
+
     } else if (isCloseEnough(answerToCheck, correctAnswer)) {
-      // Answer with 1 typo
-      setIsCorrect(true);
-      new Audio(correctSound).play();
+      console.log("Close enough!")
     } else {
-      // Wrong answer
-      setIsCorrect(false);
-      new Audio(incorrectSound).play();
+      // TODO: Replace these with something nice
+      console.log("Incorrect Answer")
     }
-    // Corresponding question result component will be displayed when this is set to true
-    setIsResultDisplayed(true);
   }
 
   function handleChange(event) {
@@ -101,8 +92,7 @@ const TextInputQuestion = (props) => {
         <input type="text" name="userInput" onChange={handleChange} value={userAnswer} />
       </label>
       <button onClick={() => submitAnswer()}>Submit Answer</button>
-      <div>{isResultDisplayed === true && isCorrect === true && <QuestionCorrect />}</div>
-      <div>{isResultDisplayed === true && isCorrect === false && <QuestionIncorrect />}</div>
+      <p>{props.correctAnswer}</p>
     </div>
   )
 }
