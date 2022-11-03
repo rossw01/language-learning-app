@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import QuestionCorrect from '../QuestionCorrect.jsx'
+
 
 const TextInputQuestion = (props) => {
   const [userAnswer, setUserAnswer] = useState("");
@@ -58,8 +60,6 @@ const TextInputQuestion = (props) => {
     return false;
   }
 
-
-
   function submitAnswer() {
     let answerToCheck = stripPunctuation(userAnswer.toLowerCase());
     let correctAnswer = stripPunctuation(props.correctAnswer.toLowerCase());
@@ -67,6 +67,7 @@ const TextInputQuestion = (props) => {
     if (answerToCheck === correctAnswer) {
       // TODO: Replace these with something nice
       console.log("Correct Answer");
+
     } else if (isCloseEnough(answerToCheck, correctAnswer)) {
       console.log("Close enough!")
     } else {
