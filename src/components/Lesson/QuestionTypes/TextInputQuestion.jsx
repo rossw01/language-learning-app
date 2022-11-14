@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import QuestionCorrect from '../QuestionCorrect.jsx'
-import QuestionIncorrect from '../QuestionIncorrect.jsx';
+import React, { useEffect, useState } from "react";
+import QuestionCorrect from "../QuestionCorrect.jsx";
+import QuestionIncorrect from "../QuestionIncorrect.jsx";
 import incorrectSound from "../../../sounds/question-incorrect-sound.wav";
 import correctSound from "../../../sounds/question-correct-sound.wav";
 
 const TextInputQuestion = (props) => {
   const [userAnswer, setUserAnswer] = useState("");
   const [isResultDisplayed, setIsResultDisplayed] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(); 
+  const [isCorrect, setIsCorrect] = useState();
 
   function stripPunctuation(input) {
-    var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
-    return input.split("").filter((letter) => {
-      return punctuation.indexOf(letter) === -1;
-    }).join("");
+    var punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+    return input
+      .split("")
+      .filter((letter) => {
+        return punctuation.indexOf(letter) === -1;
+      })
+      .join("");
   }
 
   function checkRegularTypo(answer, correctAnswer) {
@@ -25,7 +28,7 @@ const TextInputQuestion = (props) => {
         count++;
       }
     }
-    return (!(count > 1));
+    return !(count > 1);
   }
 
   function checkMismatchingLengthTypo(answer, correctAnswer) {
@@ -56,10 +59,12 @@ const TextInputQuestion = (props) => {
     correctAnswer = correctAnswer.replaceAll(" ", "");
     // Check lengths are reasonable
     if (answer.length === correctAnswer.length) {
-      return checkRegularTypo(answer, correctAnswer)
-    } else if (answer.length === correctAnswer.length - 1 ||
-      answer.length === correctAnswer.length + 1) {
-      return checkMismatchingLengthTypo(answer, correctAnswer)
+      return checkRegularTypo(answer, correctAnswer);
+    } else if (
+      answer.length === correctAnswer.length - 1 ||
+      answer.length === correctAnswer.length + 1
+    ) {
+      return checkMismatchingLengthTypo(answer, correctAnswer);
     }
     return false;
   }
@@ -91,20 +96,39 @@ const TextInputQuestion = (props) => {
 
   useEffect(() => {
     console.log(userAnswer);
-  }, [userAnswer])
+  }, [userAnswer]);
 
   return (
-    <div>
+    <div style={props.isVisible ? { display: "block" } : { display: "none" }}>
       <p>{props.question}</p>
       <label>
         Translate this sentence:
-        <input type="text" name="userInput" onChange={handleChange} value={userAnswer} />
+        <input
+          type="text"
+          name="userInput"
+          onChange={handleChange}
+          value={userAnswer}
+        />
       </label>
       <button onClick={() => submitAnswer()}>Submit Answer</button>
-      <div>{isResultDisplayed === true && isCorrect === true && <QuestionCorrect />}</div>
-      <div>{isResultDisplayed === true && isCorrect === false && <QuestionIncorrect />}</div>
+      <div>
+        {isResultDisplayed === true && isCorrect === true && (
+          <QuestionCorrect />
+        )}
+      </div>
+      <div>
+        {isResultDisplayed === true && isCorrect === false && (
+          <QuestionIncorrect />
+        )}
+      </div>
+      <button
+        style={isResultDisplayed ? { display: "block" } : { display: "none" }}
+        onClick={() => props.setCurrentQuestion(props.currentQuestion + 1)}
+      >
+        Next Question
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default TextInputQuestion
+export default TextInputQuestion;
