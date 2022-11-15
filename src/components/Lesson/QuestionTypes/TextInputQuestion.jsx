@@ -3,6 +3,8 @@ import QuestionCorrect from "../QuestionCorrect.jsx";
 import QuestionIncorrect from "../QuestionIncorrect.jsx";
 import incorrectSound from "../../../sounds/question-incorrect-sound.wav";
 import correctSound from "../../../sounds/question-correct-sound.wav";
+import "./TextInputQuestion.css";
+import "../question.css";
 
 const TextInputQuestion = (props) => {
   const [userAnswer, setUserAnswer] = useState("");
@@ -69,7 +71,8 @@ const TextInputQuestion = (props) => {
     return false;
   }
 
-  function submitAnswer() {
+  const submitAnswer = (e) => {
+    e.preventDefault();
     let answerToCheck = stripPunctuation(userAnswer.toLowerCase());
     let correctAnswer = stripPunctuation(props.correctAnswer.toLowerCase());
     // If the answer matches perfectly:
@@ -88,10 +91,25 @@ const TextInputQuestion = (props) => {
     }
     // Corresponding question result component will be displayed when this is set to true
     setIsResultDisplayed(true);
-  }
+  };
 
   function handleChange(event) {
     setUserAnswer(event.target.value);
+  }
+
+  function styleFunction() {
+    // This exists purely to change to bg colour of the question panel
+    // upon the question being answered.
+    if (props.isVisible) {
+      if (isResultDisplayed) {
+        return props.isCorrect
+          ? { display: "block", backgroundColor: "#c74c44" }
+          : { display: "block", backgroundColor: "#29b027" };
+      } else {
+        return { display: "block" };
+      }
+    }
+    return { display: "none" };
   }
 
   useEffect(() => {
@@ -99,9 +117,19 @@ const TextInputQuestion = (props) => {
   }, [userAnswer]);
 
   return (
-    <div style={props.isVisible ? { display: "block" } : { display: "none" }}>
-      <p>{props.question}</p>
-      <label>
+    <div className="lesson-frame" style={styleFunction()}>
+      {/* 
+          I would never forgive myself if I didn't make this into a function
+
+        // props.isVisible
+        //   ? isResultDisplayed
+        //     ? props.isCorrect
+        //       ? { display: "none", backgroundColor: "Blue" }
+        //       : { display: "none", backgroundColor: "Red" }
+        //     : { display: "block" }
+        //   : { display: "none" } */}
+      <p className="question-title">{props.question}</p>
+      <form onSubmit={submitAnswer}>
         Translate this sentence:
         <input
           type="text"
@@ -109,18 +137,10 @@ const TextInputQuestion = (props) => {
           onChange={handleChange}
           value={userAnswer}
         />
-      </label>
-      <button onClick={() => submitAnswer()}>Submit Answer</button>
-      <div>
-        {isResultDisplayed === true && isCorrect === true && (
-          <QuestionCorrect />
-        )}
-      </div>
-      <div>
-        {isResultDisplayed === true && isCorrect === false && (
-          <QuestionIncorrect />
-        )}
-      </div>
+        <button type="submit">Submit Answer</button>
+      </form>
+      <div>{isResultDisplayed && isCorrect && <QuestionCorrect />}</div>
+      <div>{isResultDisplayed && !isCorrect && <QuestionIncorrect />}</div>
       <button
         style={isResultDisplayed ? { display: "block" } : { display: "none" }}
         onClick={() => props.setCurrentQuestion(props.currentQuestion + 1)}
