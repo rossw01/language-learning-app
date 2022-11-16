@@ -1,4 +1,18 @@
 * {
-	padding: 0%;
-	margin: 0%;
+  /* padding: 0%; */
+  margin: 0%;
+}
+
+/* Global style snippets ~ don't change */
+
+.fb {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
 }

@@ -9,7 +9,7 @@ import "../question.css";
 const TextInputQuestion = (props) => {
   const [userAnswer, setUserAnswer] = useState("");
   const [isResultDisplayed, setIsResultDisplayed] = useState(false);
-  const [isCorrect, setIsCorrect] = useState();
+  const [isCorrect, setIsCorrect] = useState(undefined);
 
   function stripPunctuation(input) {
     var punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
@@ -102,9 +102,9 @@ const TextInputQuestion = (props) => {
     // upon the question being answered.
     if (props.isVisible) {
       if (isResultDisplayed) {
-        return props.isCorrect
-          ? { display: "block", backgroundColor: "#c74c44" }
-          : { display: "block", backgroundColor: "#29b027" };
+        return isCorrect
+          ? { display: "block", backgroundColor: "#29b027" }
+          : { display: "block", backgroundColor: "#c74c44" };
       } else {
         return { display: "block" };
       }
@@ -120,7 +120,6 @@ const TextInputQuestion = (props) => {
     <div className="lesson-frame" style={styleFunction()}>
       {/* 
           I would never forgive myself if I didn't make this into a function
-
         // props.isVisible
         //   ? isResultDisplayed
         //     ? props.isCorrect
@@ -128,19 +127,39 @@ const TextInputQuestion = (props) => {
         //       : { display: "none", backgroundColor: "Red" }
         //     : { display: "block" }
         //   : { display: "none" } */}
-      <p className="question-title">{props.question}</p>
-      <form onSubmit={submitAnswer}>
-        Translate this sentence:
-        <input
-          type="text"
-          name="userInput"
-          onChange={handleChange}
-          value={userAnswer}
-        />
-        <button type="submit">Submit Answer</button>
+      <p
+        className="question-title"
+        style={isResultDisplayed ? { color: "white" } : { color: "black" }}
+      >
+        {props.question}
+      </p>
+      <form
+        onSubmit={submitAnswer}
+        style={isResultDisplayed ? { color: "white" } : { color: "black" }}
+      >
+        <div className="fb col">
+          Translate this sentence:
+          <div>
+            <input
+              type="text"
+              name="userInput"
+              onChange={handleChange}
+              value={userAnswer}
+            />
+            <button type="submit">Submit Answer</button>
+          </div>
+        </div>
       </form>
-      <div>{isResultDisplayed && isCorrect && <QuestionCorrect />}</div>
-      <div>{isResultDisplayed && !isCorrect && <QuestionIncorrect />}</div>
+      <div>
+        {isResultDisplayed && isCorrect && (
+          <QuestionCorrect isResultDisplayed={isResultDisplayed} />
+        )}
+      </div>
+      <div>
+        {isResultDisplayed && !isCorrect && (
+          <QuestionIncorrect isResultDisplayed={isResultDisplayed} />
+        )}
+      </div>
       <button
         style={isResultDisplayed ? { display: "block" } : { display: "none" }}
         onClick={() => props.setCurrentQuestion(props.currentQuestion + 1)}
