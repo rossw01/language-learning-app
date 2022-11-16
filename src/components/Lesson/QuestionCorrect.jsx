@@ -1,10 +1,16 @@
 import React from "react";
 import "./QuestionResult.css";
 
-const QuestionCorrect = () => {
+const QuestionCorrect = (props) => {
   return (
     <div>
-      <p>Correct!</p>
+      <p
+        style={
+          props.isResultDisplayed ? { color: "white" } : { color: "black" }
+        }
+      >
+        Correct!
+      </p>
     </div>
   );
 };
