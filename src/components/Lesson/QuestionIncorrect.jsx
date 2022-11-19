@@ -3,14 +3,9 @@ import "./QuestionResult.css";
 
 const QuestionIncorrect = (props) => {
   return (
-    <div>
-      <p
-        style={
-          props.isResultDisplayed ? { color: "white" } : { color: "black" }
-        }
-      >
-        Incorrect!
-      </p>
+    <div style={{ color: "white" }}>
+      <p style={{ fontWeight: "bold", fontSize: "18px" }}>Incorrect!</p>
+      <p>{`Correct answer: ${props.correctAnswer}`}</p>
     </div>
   );
 };
