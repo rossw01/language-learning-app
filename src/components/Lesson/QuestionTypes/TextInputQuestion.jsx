@@ -139,14 +139,22 @@ const TextInputQuestion = (props) => {
       >
         <div className="fb col">
           Translate this sentence:
-          <div>
+          <div className="user-input">
             <input
+              className="input-box"
               type="text"
               name="userInput"
               onChange={handleChange}
               value={userAnswer}
+              disabled={isResultDisplayed}
             />
-            <button type="submit">Submit Answer</button>
+            <button
+              type="submit"
+              className="input-submit"
+              disabled={isResultDisplayed}
+            >
+              Submit
+            </button>
           </div>
         </div>
       </form>
@@ -157,10 +165,14 @@ const TextInputQuestion = (props) => {
       </div>
       <div>
         {isResultDisplayed && !isCorrect && (
-          <QuestionIncorrect isResultDisplayed={isResultDisplayed} />
+          <QuestionIncorrect
+            isResultDisplayed={isResultDisplayed}
+            correctAnswer={props.correctAnswer}
+          />
         )}
       </div>
       <button
+        className="input-submit next-question"
         style={isResultDisplayed ? { display: "block" } : { display: "none" }}
         onClick={() => props.setCurrentQuestion(props.currentQuestion + 1)}
       >
