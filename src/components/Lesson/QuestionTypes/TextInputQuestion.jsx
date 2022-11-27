@@ -112,10 +112,6 @@ const TextInputQuestion = (props) => {
     return { display: "none" };
   }
 
-  useEffect(() => {
-    console.log(userAnswer);
-  }, [userAnswer]);
-
   return (
     <div className="lesson-frame" style={styleFunction()}>
       {/* 
@@ -172,6 +168,7 @@ const TextInputQuestion = (props) => {
         )}
       </div>
       <button
+        type="submit"
         className="input-submit next-question"
         style={isResultDisplayed ? { display: "block" } : { display: "none" }}
         onClick={() => props.setCurrentQuestion(props.currentQuestion + 1)}

@@ -14,7 +14,7 @@ const Language = (props) => {
   };
   return (
     // name, flag, fact
-    <div
+    <button
       className="card"
       onClick={() => clickHandle()}
       style={
@@ -31,7 +31,7 @@ const Language = (props) => {
         alt={`${props.name} Flag`}
       />
       <p className="subtext">{props.fact}</p>
-    </div>
+    </button>
   );
 };
 

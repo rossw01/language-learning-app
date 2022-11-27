@@ -1,0 +1,15 @@
+.current-lesson {
+  box-sizing: border-box;
+  gap: 1rem;
+  width: 100vw;
+  padding: 0.3rem;
+  border-bottom: 1px solid #aaa;
+  height: 3.5rem;
+}
+
+.lesson-icon {
+  border-radius: 12px;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+}

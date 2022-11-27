@@ -1,9 +1,18 @@
 .lesson-frame {
+  padding: 2rem;
+  border-radius: 20px;
+  width: 50rem;
+  align-items: center;
+  justify-content: center;
+  height: min-content;
+  margin: auto;
+  min-height: 150px;
+}
+
+.questions-frame {
+  height: 100%;
   display: flex;
-  margin: 2rem;
-  padding: 1rem;
-  border: 2px solid black;
-  border-radius: 12px;
+  justify-content: center;
 }
 
 .question-title {
