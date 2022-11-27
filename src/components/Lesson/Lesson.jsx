@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TextInputQuestion from "./QuestionTypes/TextInputQuestion";
+import "./Lesson.css";
 
 const Lesson = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -23,12 +24,15 @@ const Lesson = (props) => {
   };
 
   return (
-    <div>
-      <h1>{props.selectedLesson.name}</h1>
-      <img
-        src={require(`../../courses/id/images/${props.selectedLesson.image}`)}
-      />
-      <div>{buildQuestions()}</div>
+    <div style={{ height: "90vh", width: "100vw" }}>
+      <div className="fb current-lesson">
+        <img
+          className="lesson-icon"
+          src={require(`../../courses/id/images/${props.selectedLesson.image}`)}
+        />
+        <h1>{props.selectedLesson.name}</h1>
+      </div>
+      <div className="questions-frame">{buildQuestions()}</div>
     </div>
   );
 };
